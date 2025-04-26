@@ -58,6 +58,10 @@ class TabelPullUp1Menit
      */
     private function tabelNilaiKelompokPria(int $kategoriUmur, int $data): int
     {
+        if($kategoriUmur == 0) {
+            return 0;
+        }
+
         [$dataMaksimal, $nilaiDecrement] = match ($kategoriUmur) {
             1  => [18, 5],
             2  => [17, 5],
@@ -100,6 +104,10 @@ class TabelPullUp1Menit
      */
     private function tabelNilaiKelompokWanita(int $kategoriUmur, int $data): int
     {
+        if($kategoriUmur == 0) {
+            return 0;
+        }
+
         return match($kategoriUmur) {
             1 => match(true) {
                 $data >= 63 => 100,
@@ -544,6 +552,7 @@ class TabelPullUp1Menit
                 $data == 9 => 41,
                 default => 0,
             },
+            default => [0, 0],
         };
     }
 }
