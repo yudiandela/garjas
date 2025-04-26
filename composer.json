@@ -33,7 +33,7 @@
     },
     "scripts": {
         "test": [
-            "./vendor/bin/pest --colors=always --profile"
+            "./vendor/bin/pest --colors=always"
         ]
     }
 }
