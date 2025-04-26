@@ -69,7 +69,12 @@ class TabelLari12Menit
             8  => [2842, 19],
             9  => [2747, 19],
             10 => [2652, 19],
+            default => [0, 0],
         };
+
+        if($dataMaksimal == 0) {
+            return 0;
+        }
 
         if($data >= $dataMaksimal) {
             return 100;
@@ -107,7 +112,12 @@ class TabelLari12Menit
             8  => [2245, 11],
             9  => [2190, 11],
             10 => [2135, 11],
+            default => [0, 0],
         };
+
+        if($dataMaksimal == 0) {
+            return 0;
+        }
 
         if($data >= $dataMaksimal) {
             return 100;
