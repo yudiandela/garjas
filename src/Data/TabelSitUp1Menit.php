@@ -58,6 +58,10 @@ class TabelSitUp1Menit
      */
     private function tabelNilaiKelompokPria(int $kategoriUmur, int $data): int
     {
+        if($kategoriUmur == 0) {
+            return 0;
+        }
+
         [$dataMaksimal, $nilaiDecrement] = match ($kategoriUmur) {
             1  => [41, 5],
             2  => [40, 5],
@@ -104,6 +108,10 @@ class TabelSitUp1Menit
      */
     private function tabelNilaiKelompokWanita(int $kategoriUmur, int $data): int
     {
+        if($kategoriUmur == 0) {
+            return 0;
+        }
+
         [$dataMaksimal, $nilaiDecrement] = match ($kategoriUmur) {
             1  => [36, 5],
             2  => [35, 5],
