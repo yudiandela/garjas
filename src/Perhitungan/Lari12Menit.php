@@ -13,10 +13,10 @@ class Lari12Menit
      *
      * @param int $umur umur
      * @param string $jenisKelamin jenis kelamin (pria/wanita)
-     * @param int $data data lari 12 menit
+     * @param float $data data lari 12 menit
      * @return array berisi data lari 12 menit dan nilai
      */
-    public static function check(int $umur, string $jenisKelamin, int $data): array
+    public static function check(int $umur, string $jenisKelamin, float $data): array
     {
         // Mengambil data kategori berdasarkan umur
         $kategoriUmur = KategoriUmur::check($umur);

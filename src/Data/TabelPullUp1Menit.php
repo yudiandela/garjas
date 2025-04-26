@@ -13,12 +13,12 @@ class TabelPullUp1Menit
      *
      * @param int $kategoriUmur kategori umur (1-10)
      * @param string $jenisKelamin jenis kelamin (pria/wanita)
-     * @param int $data data pull up
+     * @param float $data data pull up
      */
     public function __construct(
         private int $kategoriUmur,
         private string $jenisKelamin,
-        private int $data,
+        private float $data,
     )
     {
         $this->nilai = $this->tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data);
@@ -39,10 +39,10 @@ class TabelPullUp1Menit
      *
      * @param int $kategoriUmur kategori umur (1-10)
      * @param string $jenisKelamin jenis kelamin (pria/wanita)
-     * @param int $data data pull up
+     * @param float $data data pull up
      * @return int nilai pull up
      */
-    private function tabelNilaiKelompok(int $kategoriUmur, string $jenisKelamin, int $data): int
+    private function tabelNilaiKelompok(int $kategoriUmur, string $jenisKelamin, float $data): int
     {
         return $jenisKelamin == 'pria' ?
                $this->tabelNilaiKelompokPria($kategoriUmur, $data) :
@@ -53,10 +53,10 @@ class TabelPullUp1Menit
      * Menghitung nilai pull up berdasarkan kategori umur dan jenis kelamin pria.
      *
      * @param int $kategoriUmur kategori umur (1-10)
-     * @param int $data data pull up
+     * @param float $data data pull up
      * @return int nilai pull up
      */
-    private function tabelNilaiKelompokPria(int $kategoriUmur, int $data): int
+    private function tabelNilaiKelompokPria(int $kategoriUmur, float $data): int
     {
         if($kategoriUmur == 0) {
             return 0;
@@ -99,10 +99,10 @@ class TabelPullUp1Menit
      * Menghitung nilai pull up berdasarkan kategori umur dan jenis kelamin wanita.
      *
      * @param int $kategoriUmur kategori umur (1-10)
-     * @param int $data data pull up
+     * @param float $data data pull up
      * @return int nilai pull up
      */
-    private function tabelNilaiKelompokWanita(int $kategoriUmur, int $data): int
+    private function tabelNilaiKelompokWanita(int $kategoriUmur, float $data): int
     {
         if($kategoriUmur == 0) {
             return 0;

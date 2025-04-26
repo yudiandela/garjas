@@ -14,10 +14,10 @@ class SitUp
      *
      * @param int $umur
      * @param string $jenisKelamin
-     * @param int $data
+     * @param float $data
      * @return array
      */
-    public static function check(int $umur, string $jenisKelamin, int $data): array
+    public static function check(int $umur, string $jenisKelamin, float $data): array
     {
         // Mengambil data kategori berdasarkan umur
         $kategoriUmur = KategoriUmur::check($umur);

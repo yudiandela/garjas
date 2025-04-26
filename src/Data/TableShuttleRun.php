@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Data;
 
-class TabelLari12Menit
+class TableShuttleRun
 {
     public int $nilai;
 
@@ -13,7 +13,7 @@ class TabelLari12Menit
      *
      * @param int $kategoriUmur kategori umur (1-10)
      * @param string $jenisKelamin jenis kelamin (pria/wanita)
-     * @param float $data data lari 12 menit
+     * @param float $data data shuttle run
      */
     public function __construct(
         private int $kategoriUmur,
@@ -25,7 +25,7 @@ class TabelLari12Menit
     }
 
     /**
-     * Mendapatkan nilai lari 12 menit.
+     * Mendapatkan nilai shuttle run.
      *
      * @return int
      */
@@ -35,11 +35,11 @@ class TabelLari12Menit
     }
 
     /**
-     * Menghitung nilai lari 12 menit berdasarkan kategori umur dan jenis kelamin.
+     * Menghitung nilai shuttle run berdasarkan kategori umur dan jenis kelamin.
      *
      * @param int $kategoriUmur kategori umur (1-10)
      * @param string $jenisKelamin jenis kelamin (pria/wanita)
-     * @param float $data data lari 12 menit
+     * @param float $data data shuttle run
      * @return int
      */
     private function tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data)
@@ -50,10 +50,10 @@ class TabelLari12Menit
     }
 
     /**
-     * Menghitung nilai lari 12 menit berdasarkan kategori umur dan jenis kelamin pria.
+     * Menghitung nilai shuttle run berdasarkan kategori umur dan jenis kelamin pria.
      *
      * @param int $kategoriUmur kategori umur (1-10)
-     * @param float $data data lari 12 menit
+     * @param float $data data shuttle run
      * @return int
      */
     private function tabelNilaiKelompokPria(int $kategoriUmur, float $data): int
@@ -62,29 +62,25 @@ class TabelLari12Menit
             return 0;
         }
 
-        [$dataMaksimal, $nilaiDecrement] = match ($kategoriUmur) {
-            1  => [3507, 19],
-            2  => [3412, 19],
-            3  => [3317, 19],
-            4  => [3222, 19],
-            5  => [3127, 19],
-            6  => [3032, 19],
-            7  => [2937, 19],
-            8  => [2842, 19],
-            9  => [2747, 19],
-            10 => [2652, 19],
+        [$nilaiMaksimal, $nilaiIncrement] = match ($kategoriUmur) {
+            1  => [15.90, 0.1],
+            2  => [16.40, 0.1],
+            3  => [16.90, 0.1],
+            4  => [17.40, 0.1],
+            5  => [17.90, 0.1],
+            6  => [18.40, 0.1],
+            7  => [18.90, 0.1],
+            8  => [19.40, 0.1],
+            9  => [19.90, 0.1],
+            10 => [20.40, 0.1],
         };
 
-        if($data >= $dataMaksimal) {
+        if($data <= $nilaiMaksimal) {
             return 100;
         }
 
         $nilai = 100;
-        for ($i = $dataMaksimal; $i > $data; $i = $i - $nilaiDecrement) {
-            if($data >= $i) {
-                break;
-            }
-
+        for($i = $nilaiMaksimal; $i <= $data; $i += $nilaiIncrement) {
             $nilai--;
         }
 
@@ -92,10 +88,10 @@ class TabelLari12Menit
     }
 
     /**
-     * Menghitung nilai lari 12 menit berdasarkan kategori umur dan jenis kelamin wanita.
+     * Menghitung nilai shuttle run berdasarkan kategori umur dan jenis kelamin wanita.
      *
      * @param int $kategoriUmur kategori umur (1-10)
-     * @param float $data data lari 12 menit
+     * @param float $data data shuttle run
      * @return int
      */
     private function tabelNilaiKelompokWanita(int $kategoriUmur, float $data): int
@@ -104,29 +100,25 @@ class TabelLari12Menit
             return 0;
         }
 
-        [$dataMaksimal, $nilaiDecrement] = match ($kategoriUmur) {
-            1  => [2630, 11],
-            2  => [2575, 11],
-            3  => [2520, 11],
-            4  => [2465, 11],
-            5  => [2410, 11],
-            6  => [2355, 11],
-            7  => [2300, 11],
-            8  => [2245, 11],
-            9  => [2190, 11],
-            10 => [2135, 11],
+        [$nilaiMaksimal, $nilaiIncrement] = match ($kategoriUmur) {
+            1  => [17.20, 0.1],
+            2  => [17.70, 0.1],
+            3  => [18.20, 0.1],
+            4  => [18.70, 0.1],
+            5  => [19.20, 0.1],
+            6  => [19.70, 0.1],
+            7  => [20.20, 0.1],
+            8  => [20.70, 0.1],
+            9  => [21.20, 0.1],
+            10 => [21.70, 0.1],
         };
 
-        if($data >= $dataMaksimal) {
+        if($data <= $nilaiMaksimal) {
             return 100;
         }
 
         $nilai = 100;
-        for ($i = $dataMaksimal; $i > $data; $i = $i - $nilaiDecrement) {
-            if($data >= $i) {
-                break;
-            }
-
+        for($i = $nilaiMaksimal; $i <= $data; $i += $nilaiIncrement) {
             $nilai--;
         }
 
