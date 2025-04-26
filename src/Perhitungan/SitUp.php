@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Yudiandela\Garjas\Perhitungan;
+
+use Yudiandela\Garjas\Data\TabelSitUp1Menit;
+
+class SitUp
+{
+    /**
+     * Mengecek kategori berdasarkan umur dan jenis kelamin
+     * lalu menghitung nilai sit up berdasarkan data yang diberikan.
+     *
+     * @param int $umur
+     * @param string $jenisKelamin
+     * @param int $data
+     * @return array
+     */
+    public static function check(int $umur, string $jenisKelamin, int $data): array
+    {
+        // Mengambil data kategori berdasarkan umur
+        $kategoriUmur = KategoriUmur::check($umur);
+
+        // Hitung nilai sit up
+        $nilai = new TabelSitUp1Menit($kategoriUmur, $jenisKelamin, $data)->get();
+
+        return [
+            'sit_up_1_menit' => $data,
+            'nilai' => $nilai
+        ];
+    }
+}
