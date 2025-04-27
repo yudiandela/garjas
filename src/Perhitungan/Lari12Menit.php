@@ -1,12 +1,11 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Perhitungan;
 
 use Yudiandela\Garjas\Data\TabelLari12Menit;
+use Yudiandela\Garjas\Interface\PerhitunganGarjasInterface;
 
-class Lari12Menit
+final class Lari12Menit implements PerhitunganGarjasInterface
 {
     /**
      * Menghitung nilai lari 12 menit berdasarkan umur, jenis kelamin, dan data yang diberikan.

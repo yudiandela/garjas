@@ -1,13 +1,11 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Perhitungan;
 
 use Yudiandela\Garjas\Enums\BMIKategori;
 use Yudiandela\Garjas\Enums\BMIRange;
 
-class BMI
+final class BMI
 {
     /**
      * Mengecek kategori berdasarkan berat badan dan tinggi badan

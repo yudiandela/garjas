@@ -1,10 +1,10 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Data;
 
-class TableShuttleRun
+use Yudiandela\Garjas\Interface\TableDataGarjasInterface;
+
+final class TableShuttleRun implements TableDataGarjasInterface
 {
     public int $nilai;
 
@@ -42,7 +42,7 @@ class TableShuttleRun
      * @param float $data data shuttle run
      * @return int
      */
-    private function tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data)
+    private function tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data): int
     {
         return $jenisKelamin == 'pria' ?
                $this->tabelNilaiKelompokPria($kategoriUmur, $data) :

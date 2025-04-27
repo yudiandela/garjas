@@ -1,12 +1,11 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Perhitungan;
 
 use Yudiandela\Garjas\Data\TabelPushUp1Menit;
+use Yudiandela\Garjas\Interface\PerhitunganGarjasInterface;
 
-class PushUp
+final class PushUp implements PerhitunganGarjasInterface
 {
     /**
      * Mengecek kategori berdasarkan umur dan jenis kelamin

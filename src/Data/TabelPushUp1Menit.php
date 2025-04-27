@@ -1,10 +1,10 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Data;
 
-class TabelPushUp1Menit
+use Yudiandela\Garjas\Interface\TableDataGarjasInterface;
+
+final class TabelPushUp1Menit implements TableDataGarjasInterface
 {
     public int $nilai;
 

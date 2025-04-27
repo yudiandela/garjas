@@ -1,10 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Perhitungan;
 
-class KategoriUmur
+final class KategoriUmur
 {
     public static function check(int $umur): int
     {

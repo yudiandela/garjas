@@ -1,10 +1,8 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Perhitungan;
 
-class KelompokTinggi
+final class KelompokTinggi
 {
     public static function check(float|int $tinggiBadan): int
     {

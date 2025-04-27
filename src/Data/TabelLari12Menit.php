@@ -1,10 +1,10 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Data;
 
-class TabelLari12Menit
+use Yudiandela\Garjas\Interface\TableDataGarjasInterface;
+
+final class TabelLari12Menit implements TableDataGarjasInterface
 {
     public int $nilai;
 
@@ -42,7 +42,7 @@ class TabelLari12Menit
      * @param float $data data lari 12 menit
      * @return int
      */
-    private function tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data)
+    private function tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data): int
     {
         return $jenisKelamin == 'pria' ?
                $this->tabelNilaiKelompokPria($kategoriUmur, $data) :

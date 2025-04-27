@@ -1,12 +1,11 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Yudiandela\Garjas\Perhitungan;
 
 use Yudiandela\Garjas\Data\TableShuttleRun;
+use Yudiandela\Garjas\Interface\PerhitunganGarjasInterface;
 
-class ShuttleRun
+final class ShuttleRun implements PerhitunganGarjasInterface
 {
     /**
      * Mengecek kategori berdasarkan umur dan jenis kelamin
