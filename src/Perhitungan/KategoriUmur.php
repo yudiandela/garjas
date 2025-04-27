@@ -1,4 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * File ini bagian dari paket yudiandela/garjas.
+ *
+ * @contact  yudhi.andhela@gmail.com
+ * @license  https://github.com/yudiandela/garjas/blob/master/LICENSE
+ */
 
 namespace Yudiandela\Garjas\Perhitungan;
 
@@ -6,7 +14,7 @@ final class KategoriUmur
 {
     public static function check(int $umur): int
     {
-        return match(true) {
+        return match (true) {
             $umur >= 18 && $umur <= 25 => 1,
             $umur >= 26 && $umur <= 30 => 2,
             $umur >= 31 && $umur <= 35 => 3,

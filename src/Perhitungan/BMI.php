@@ -1,4 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * File ini bagian dari paket yudiandela/garjas.
+ *
+ * @contact  yudhi.andhela@gmail.com
+ * @license  https://github.com/yudiandela/garjas/blob/master/LICENSE
+ */
 
 namespace Yudiandela\Garjas\Perhitungan;
 
@@ -23,7 +31,7 @@ final class BMI
         // Hitung BMI
         $bmi = (float) round($beratBadan / ($tinggiBadan * $tinggiBadan), 2);
 
-        return match(true) {
+        return match (true) {
             $bmi <= 19.5 => ['kategori' => BMIKategori::LLB->value, 'range_bmi' => BMIRange::LLB->value, 'bmi' => $bmi],
             $bmi <= 20.3 => ['kategori' => BMIKategori::LB->value, 'range_bmi' => BMIRange::LB->value, 'bmi' => $bmi],
             $bmi <= 21.1 => ['kategori' => BMIKategori::NB->value, 'range_bmi' => BMIRange::NB->value, 'bmi' => $bmi],

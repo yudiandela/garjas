@@ -1,4 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * File ini bagian dari paket yudiandela/garjas.
+ *
+ * @contact  yudhi.andhela@gmail.com
+ * @license  https://github.com/yudiandela/garjas/blob/master/LICENSE
+ */
 
 namespace Yudiandela\Garjas\Perhitungan;
 
@@ -11,23 +19,22 @@ final class KelompokTinggi
         $tinggiBadanMaksimal = 200;
 
         // Jika tinggi kurang dari batas minimal atau melebihi batas maksimal
-        if($tinggiBadan < $tinggiBadanMinimal || $tinggiBadan > $tinggiBadanMaksimal) {
+        if ($tinggiBadan < $tinggiBadanMinimal || $tinggiBadan > $tinggiBadanMaksimal) {
             return 0;
         }
 
         // Jika tinggi sama dengan batas maksimal
-        if($tinggiBadan == $tinggiBadanMaksimal) {
+        if ($tinggiBadan == $tinggiBadanMaksimal) {
             return 101;
         }
 
         $kelompok = 1;
-        for($i = $tinggiBadanMinimal; $i <= $tinggiBadanMaksimal; $i = $i + 0.5) {
-
-            if($tinggiBadan == $i) {
+        for ($i = $tinggiBadanMinimal; $i <= $tinggiBadanMaksimal; $i = $i + 0.5) {
+            if ($tinggiBadan == $i) {
                 return $kelompok;
             }
 
-            $kelompok++;
+            ++$kelompok;
         }
 
         return 0;

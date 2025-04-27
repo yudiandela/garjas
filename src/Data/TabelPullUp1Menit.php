@@ -1,4 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * File ini bagian dari paket yudiandela/garjas.
+ *
+ * @contact  yudhi.andhela@gmail.com
+ * @license  https://github.com/yudiandela/garjas/blob/master/LICENSE
+ */
 
 namespace Yudiandela\Garjas\Data;
 
@@ -19,8 +27,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
         private int $kategoriUmur,
         private string $jenisKelamin,
         private float $data,
-    )
-    {
+    ) {
         $this->nilai = $this->tabelNilaiKelompok($kategoriUmur, $jenisKelamin, $data);
     }
 
@@ -44,9 +51,9 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
      */
     private function tabelNilaiKelompok(int $kategoriUmur, string $jenisKelamin, float $data): int
     {
-        return $jenisKelamin == 'pria' ?
-               $this->tabelNilaiKelompokPria($kategoriUmur, $data) :
-               $this->tabelNilaiKelompokWanita($kategoriUmur, $data);
+        return $jenisKelamin == 'pria'
+               ? $this->tabelNilaiKelompokPria($kategoriUmur, $data)
+               : $this->tabelNilaiKelompokWanita($kategoriUmur, $data);
     }
 
     /**
@@ -58,34 +65,34 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
      */
     private function tabelNilaiKelompokPria(int $kategoriUmur, float $data): int
     {
-        if($kategoriUmur == 0) {
+        if ($kategoriUmur == 0) {
             return 0;
         }
 
         [$dataMaksimal, $nilaiDecrement] = match ($kategoriUmur) {
-            1  => [18, 5],
-            2  => [17, 5],
-            3  => [16, 5],
-            4  => [15, 5],
-            5  => [14, 5],
-            6  => [13, 5],
-            7  => [12, 5],
-            8  => [11, 5],
-            9  => [10, 5],
+            1 => [18, 5],
+            2 => [17, 5],
+            3 => [16, 5],
+            4 => [15, 5],
+            5 => [14, 5],
+            6 => [13, 5],
+            7 => [12, 5],
+            8 => [11, 5],
+            9 => [10, 5],
             10 => [9, 5],
         };
 
-        if($data <= 0) {
+        if ($data <= 0) {
             return 0;
         }
 
-        if($data >= $dataMaksimal) {
+        if ($data >= $dataMaksimal) {
             return 100;
         }
 
         $nilai = 100;
-        for ($i = $dataMaksimal; $i >= $data; $i--) {
-            if($data >= $i) {
+        for ($i = $dataMaksimal; $i >= $data; --$i) {
+            if ($data >= $i) {
                 break;
             }
 
@@ -104,12 +111,12 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
      */
     private function tabelNilaiKelompokWanita(int $kategoriUmur, float $data): int
     {
-        if($kategoriUmur == 0) {
+        if ($kategoriUmur == 0) {
             return 0;
         }
 
-        return match($kategoriUmur) {
-            1 => match(true) {
+        return match ($kategoriUmur) {
+            1 => match (true) {
                 $data >= 63 => 100,
                 $data == 62 => 98,
                 $data == 61 => 97,
@@ -165,7 +172,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 11 => 0,
                 default => 0,
             },
-            2 => match(true) {
+            2 => match (true) {
                 $data >= 60 => 100,
                 $data == 59 => 98,
                 $data == 58 => 97,
@@ -220,7 +227,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 1,
                 default => 0,
             },
-            3 => match(true) {
+            3 => match (true) {
                 $data >= 57 => 100,
                 $data == 56 => 98,
                 $data == 55 => 97,
@@ -272,7 +279,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 6,
                 default => 0,
             },
-            4 => match(true) {
+            4 => match (true) {
                 $data >= 54 => 100,
                 $data == 53 => 98,
                 $data == 52 => 97,
@@ -321,7 +328,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 11,
                 default => 0,
             },
-            5 => match(true) {
+            5 => match (true) {
                 $data >= 51 => 100,
                 $data == 50 => 98,
                 $data == 49 => 97,
@@ -367,7 +374,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 16,
                 default => 0,
             },
-            6 => match(true) {
+            6 => match (true) {
                 $data >= 48 => 100,
                 $data == 47 => 98,
                 $data == 46 => 97,
@@ -410,7 +417,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 21,
                 default => 0,
             },
-            7 => match(true) {
+            7 => match (true) {
                 $data >= 45 => 100,
                 $data == 44 => 98,
                 $data == 43 => 97,
@@ -450,7 +457,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 26,
                 default => 0,
             },
-            8 => match(true) {
+            8 => match (true) {
                 $data >= 42 => 100,
                 $data == 41 => 98,
                 $data == 40 => 97,
@@ -487,7 +494,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 31,
                 default => 0,
             },
-            9 => match(true) {
+            9 => match (true) {
                 $data >= 39 => 100,
                 $data == 38 => 98,
                 $data == 37 => 97,
@@ -521,7 +528,7 @@ final class TabelPullUp1Menit implements TableDataGarjasInterface
                 $data == 9 => 36,
                 default => 0,
             },
-            10 => match(true) {
+            10 => match (true) {
                 $data >= 36 => 100,
                 $data == 35 => 98,
                 $data == 34 => 96,

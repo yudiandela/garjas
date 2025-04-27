@@ -1,4 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+/**
+ * File ini bagian dari paket yudiandela/garjas.
+ *
+ * @contact  yudhi.andhela@gmail.com
+ * @license  https://github.com/yudiandela/garjas/blob/master/LICENSE
+ */
 
 namespace Yudiandela\Garjas\Perhitungan;
 
@@ -10,11 +18,6 @@ final class PullUp implements PerhitunganGarjasInterface
     /**
      * Mengecek kategori berdasarkan umur dan jenis kelamin
      * lalu menghitung nilai pull up berdasarkan data yang diberikan.
-     *
-     * @param int $umur
-     * @param string $jenisKelamin
-     * @param float $data
-     * @return array
      */
     public static function check(int $umur, string $jenisKelamin, float $data): array
     {
@@ -26,7 +29,7 @@ final class PullUp implements PerhitunganGarjasInterface
 
         return [
             'pull_up_1_menit' => $data,
-            'nilai' => $nilai
+            'nilai' => $nilai,
         ];
     }
 }
